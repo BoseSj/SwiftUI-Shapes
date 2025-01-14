@@ -1,7 +1,7 @@
 import SwiftUI
 
 /// A type erased `Shape`
-public struct AnyShape: Shape {
+public struct CustomAnyShape: Shape {
     private let _makePath: (CGRect) -> Path
 
     public init<S: Shape>(_ shape: S) {
@@ -14,7 +14,7 @@ public struct AnyShape: Shape {
 }
 
 public extension Shape {
-    func eraseToAnyShape() -> AnyShape {
-        AnyShape(self)
+    func eraseToAnyShape() -> CustomAnyShape {
+        CustomAnyShape(self)
     }
 }
